@@ -4,10 +4,10 @@ A simple REST API for managing students, courses, and enrollments using Node.js 
 
 ## Features
 
-- Add a student
-- View all students
-- Update a student
-- Delete a student
+- Add students
+- View students
+- Update students
+- Delete students
 - Add courses
 - View courses
 - Enroll students in courses
@@ -22,22 +22,13 @@ A simple REST API for managing students, courses, and enrollments using Node.js 
 
 ## How to Run
 
-1. Clone or download this repository.
-2. Open the project folder in VS Code.
-3. Open the terminal.
-4. Install dependencies:
+1. Open the project in VS Code.
+2. Open the terminal.
+3. Install dependencies:
 
 ```bash
 npm install
 
-5. Start the server:
-
-```bash
 npm start
 
-6. The server will run at:
-
-```text
 http://localhost:3000
-
-
