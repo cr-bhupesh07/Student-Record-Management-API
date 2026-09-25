@@ -28,7 +28,7 @@ A simple REST API for managing students, courses, and enrollments using Node.js 
 
 ```bash
 npm install
-
+```
 5. Start the server:
 
 ```bash
