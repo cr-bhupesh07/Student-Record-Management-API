@@ -34,13 +34,13 @@ npm install
 ```bash
 npm start
 ```
-
+5. Start the server:
 
 ```bash
 npm start
 ```
 
-5. The server will run at:
+6. The server will run at:
 
 ```text
 http://localhost:3000
@@ -78,4 +78,3 @@ http://localhost:3000
 ## Project Status
 
 Completed and tested using Postman.
-
