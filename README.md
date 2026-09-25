@@ -35,7 +35,12 @@ npm install
 npm start
 ```
 
-6. The server will run at:
+
+```bash
+npm start
+```
+
+5. The server will run at:
 
 ```text
 http://localhost:3000
@@ -73,3 +78,4 @@ http://localhost:3000
 ## Project Status
 
 Completed and tested using Postman.
+
