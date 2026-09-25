@@ -1,13 +1,13 @@
 # Student Record Management API
 
-A simple REST API built using Node.js and Express.js.
+A simple REST API for managing students, courses, and enrollments using Node.js and Express.js.
 
 ## Features
 
-- Add students
-- View students
-- Update students
-- Delete students
+- Add a student
+- View all students
+- Update a student
+- Delete a student
 - Add courses
 - View courses
 - Enroll students in courses
@@ -18,13 +18,20 @@ A simple REST API built using Node.js and Express.js.
 - Node.js
 - Express.js
 - Postman
+- REST API
 
 ## How to Run
 
-1. Open the project in VS Code.
-2. Open the terminal.
-3. Run:
+1. Clone or download this repository.
+2. Open the project folder in VS Code.
+3. Open the terminal.
+4. Install dependencies:
 
 ```bash
-node server.js
-```
+npm install
+
+5. Start the server:
+
+```bash
+npm start
+
