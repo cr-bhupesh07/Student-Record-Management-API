@@ -1,79 +1,169 @@
-CODSOFT BACKEND DEVELOPMENT
+# Student Record Management API & Contact Management System
 
-# Student Record Management API
+A RESTful backend API built with **Node.js** and **Express.js**.
 
-A simple REST API for managing students, courses, and enrollments using Node.js and Express.js.
+This project contains two backend modules:
 
-## Features
+1. Student Record Management API
+2. Contact Management System
 
-- Add a student
-- View all students
-- Update a student
-- Delete a student
-- Add courses
-- View courses
-- Enroll students in courses
-- View enrollments
+---
 
 ## Technologies Used
 
 - Node.js
 - Express.js
-- Postman
-- REST API
+- JavaScript
+- JSON file storage
+- CORS
+- Postman for API testing
 
-## How to Run
+---
 
-1. Clone or download this repository.
-2. Open the project folder in VS Code.
-3. Open the terminal.
-4. Install dependencies:
+# 1. Student Record Management API
 
-```bash
-npm install
-```
+The Student Record Management API provides APIs for managing:
 
-5. Start the server:
+- Students
+- Courses
+- Enrollments
 
-```bash
-npm start
-```
+## Student APIs
 
-6. The server will run at:
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/students` | Get all students |
+| GET | `/students/:id` | Get student by ID |
+| POST | `/students` | Create a student |
+| PUT | `/students/:id` | Update a student |
+| DELETE | `/students/:id` | Delete a student |
 
-```text
-http://localhost:3000
-```
+## Course APIs
 
-## API Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/courses` | Get all courses |
+| GET | `/courses/:id` | Get course by ID |
+| POST | `/courses` | Create a course |
+| PUT | `/courses/:id` | Update a course |
+| DELETE | `/courses/:id` | Delete a course |
 
-### Students
+## Enrollment APIs
 
-- GET `/students`
-- POST `/students`
-- PUT `/students/:id`
-- DELETE `/students/:id`
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/enrollments` | Get all enrollments |
+| GET | `/enrollments/:id` | Get enrollment by ID |
+| POST | `/enrollments` | Create an enrollment |
+| PUT | `/enrollments/:id` | Update an enrollment |
+| DELETE | `/enrollments/:id` | Delete an enrollment |
 
-### Courses
+---
 
-- GET `/courses`
-- POST `/courses`
+# 2. Contact Management System
 
-### Enrollments
+The Contact Management System provides REST APIs for creating and managing contacts.
 
-- GET `/enrollments`
-- POST `/enrollments`
+Each contact contains:
 
-## Example Student
+- Name
+- Email
+- Phone number
+- Address
+- Company information
 
-```json
+Contact data is stored in `contacts.json`.
+
+## Contact API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/contacts` | Get all contacts |
+| GET | `/contacts/:id` | Get contact by ID |
+| POST | `/contacts` | Add a new contact |
+| PUT | `/contacts/:id` | Update a contact |
+| DELETE | `/contacts/:id` | Delete a contact |
+
+---
+
+## Add Contact
+
+### Request
+
+```http
+POST /contacts
 {
-  "name": "Aman Kumar",
-  "age": 22,
-  "course": "MCA"
+  "name": "Amit Kumar",
+  "email": "amit@gmail.com",
+  "phone": "9876543212",
+  "address": "Delhi, India",
+  "company": "Tech Solutions"
 }
-```
-
-## Project Status
-
-Completed and tested using Postman.
+{
+  "message": "Contact created successfully",
+  "contact": {
+    "id": 1,
+    "name": "Amit Kumar",
+    "email": "amit@gmail.com",
+    "phone": "9876543212",
+    "address": "Delhi, India",
+    "company": "Tech Solutions"
+  }
+}
+GET /contacts
+GET /contacts?search=Rahul
+GET /contacts?search=gmail.com
+GET /contacts?sort=name&order=asc
+GET /contacts?sort=name&order=desc
+GET /contacts?page=1&limit=2
+GET /contacts?page=2&limit=2
+GET /contacts/1
+PUT /contacts/1
+{
+  "name": "Amit Sharma",
+  "email": "amit.sharma@gmail.com",
+  "phone": "9876543212",
+  "address": "Delhi, India",
+  "company": "ABC Technologies"
+}
+{
+  "message": "Contact updated successfully",
+  "contact": {
+    "id": 1,
+    "name": "Amit Sharma",
+    "email": "amit.sharma@gmail.com",
+    "phone": "9876543212",
+    "address": "Delhi, India",
+    "company": "ABC Technologies"
+  }
+}
+DELETE /contacts/1
+{
+  "error": "Name, email and phone are required"
+}
+{
+  "error": "Contact with this email or phone already exists"
+}
+409 Conflict
+{
+  "error": "Page must be a positive number"
+}
+{
+  "error": "Limit must be a positive number"
+}
+{
+  "error": "Invalid sort field",
+  "allowedFields": [
+    "id",
+    "name",
+    "email",
+    "phone",
+    "company"
+  ]
+}
+{
+  "error": "Order must be either asc or desc"
+}
+{
+  "error": "Contact not found"
+}

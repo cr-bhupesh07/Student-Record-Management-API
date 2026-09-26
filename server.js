@@ -4,6 +4,7 @@ const cors = require("cors");
 const studentRoutes = require("./students");
 const courseRoutes = require("./courses");
 const enrollmentRoutes = require("./enrollments");
+const contactRoutes = require("./routes/contacts");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use("/students", studentRoutes);
 app.use("/courses", courseRoutes);
 app.use("/enrollments", enrollmentRoutes);
+app.use("/contacts", contactRoutes);
 
 app.get("/", (req, res) => {
   res.json({
