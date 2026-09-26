@@ -1,24 +1,31 @@
 const express = require("express");
+const cors = require("cors");
+
+const studentRoutes = require("./students");
+const courseRoutes = require("./courses");
+const enrollmentRoutes = require("./enrollments");
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
-const studentRoutes = require("../routes/students");
 app.use("/students", studentRoutes);
-
-const courseRoutes = require("../routes/courses");
 app.use("/courses", courseRoutes);
-
-const enrollmentRoutes = require("../routes/enrollments");
 app.use("/enrollments", enrollmentRoutes);
 
 app.get("/", (req, res) => {
   res.json({
-    message: "Student Record API is running"
+    message: "Student Record API is running",
+    status: "ok"
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
-});
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
